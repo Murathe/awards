@@ -90,7 +90,18 @@ class Rates(models.Model):
     def _get_total(self):
         return (self.design + self.usability + self.content) * 0.33
 
+    total = property(_get_total)
 
+    @classmethod
+    def get_rates(cls, id):
+        rates = cls.objects.all()
+        return rates
+
+
+class Comments(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    comments = models.TextField(max_length=6)
+    pro_id = models.IntegerField(default=0)
 
 
 
