@@ -74,6 +74,7 @@ class Projects(models.Model):
 class Rates(models.Model):
     design = models.IntegerField(default=0, validators=[MaxValueValidator(5)])
     usability = models.IntegerField(default=0, validators=[MaxValueValidator(5)])
+    content = models.IntegerField(default=0, validators=[MaxValueValidator(5)])
     
 
 
