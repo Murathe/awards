@@ -7,13 +7,12 @@ from django.dispatch import receiver
 from url_or_relative_url_field.fields import URLOrRelativeURLField
 from django.core.validators import MaxValueValidator
 
-
 # Create your models here.
 class Profile(models.Model):
     bio = HTMLField()
     profile_photo = ImageField(blank = True)
-    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key = True)
-    phone_number = models.CharField(max_length=10)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+    phone_number = models.CharField(max_length=12)
 
     @receiver(post_save, sender = User)
     def create_user_profile(sender, instance, created, **kwargs):
@@ -36,27 +35,30 @@ class Profile(models.Model):
         return profile
 
     @classmethod
-    def filter_by_id(cls, id):
-        profile = Profile.objects.get(user = id).first()
-
-    @classmethod
     def get_by_id(cls, id):
         profile = Profile.objects.get(user = id)
         return profile
 
+    @classmethod
+    def filter_by_id(cls, id):
+        profile = Profile.objects.filter(user = id).first()
+        return profile
+
+
     def __str__(self):
         return self.bio
 
+
 class Projects(models.Model):
     profile = models.ForeignKey(User, on_delete=models.CASCADE)
-    title = models.CharField(max_length=15)
+    title = models.CharField(max_length=20)
     design = models.IntegerField(default=0)
     usability = models.IntegerField(default=0)
-    content = models.itertools(default=0)
-    image = models.ImageField(upload_to = 'images/')
-    description = HTMLField(max_length=100)
-    live_link = URLOrRelativeURLField(max_length=100)
-    pub_date = models.DateField(auto_now_add=True)
+    content = models.IntegerField(default=0)
+    image_landing = models.ImageField(upload_to = 'landing/')
+    description = HTMLField(max_length=200, blank=True)
+    link = URLOrRelativeURLField(max_length=200)
+    pub_date = models.DateTimeField(auto_now_add=True)
 
     @classmethod
     def search_by_projects(cls, search_term):
@@ -65,25 +67,29 @@ class Projects(models.Model):
 
     @classmethod
     def get_projects_by_profile(cls, profile):
-        projects = Projects.objects.filter(Profile__pk=profile)
+        projects = Projects.objects.filter(profile__pk=profile)
+        return projects
+
+    
+
 
     def __str__(self):
         return self.title
 
 
 class Rates(models.Model):
-    design = models.IntegerField(default=0, validators=[MaxValueValidator(5)])
-    usability = models.IntegerField(default=0, validators=[MaxValueValidator(5)])
-    content = models.IntegerField(default=0, validators=[MaxValueValidator(5)])
+    design = models.IntegerField(default=0, validators=[MaxValueValidator(10)])
+    usability = models.IntegerField(default=0, validators=[MaxValueValidator(10)])
+    content = models.IntegerField(default=0, validators=[10])
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     project = models.IntegerField(default=0)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)    
 
     class Meta:
         unique_together = (('user', 'design', 'usability', 'content', 'project'))
         index_together = (('user', 'design', 'usability', 'content', 'project'))
 
         ordering = ['-id']
-
+    
     def save_rate(self):
         self.save()
 
@@ -96,15 +102,9 @@ class Rates(models.Model):
     def get_rates(cls, id):
         rates = cls.objects.all()
         return rates
-
+       
 
 class Comments(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    comments = models.TextField(max_length=6)
+    comments = models.TextField(max_length=400)
     pro_id = models.IntegerField(default=0)
-
-
-
-
-
-
