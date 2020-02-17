@@ -86,7 +86,10 @@ class Rates(models.Model):
 
     def save_rate(self):
         self.save()
-        
+
+    def _get_total(self):
+        return (self.design + self.usability + self.content) * 0.33
+
 
 
 
