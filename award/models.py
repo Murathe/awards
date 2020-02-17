@@ -78,9 +78,15 @@ class Rates(models.Model):
     project = models.IntegerField(default=0)
     user = models.ForeignKey(User, on_delete=models.CASCADE)    
 
+    class Meta:
+        unique_together = (('user', 'design', 'usability', 'content', 'project'))
+        index_together = (('user', 'design', 'usability', 'content', 'project'))
 
+        ordering = ['-id']
 
-
+    def save_rate(self):
+        self.save()
+        
 
 
 
