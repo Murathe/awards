@@ -27,6 +27,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Upload care config
+UPLOADCARE = {
+    'pub_key': '495d621fb13cc0b45a9b',
+    'secret': '4adda46d2735ccbff6d2',
+}
+
 
 # Application definition
 
