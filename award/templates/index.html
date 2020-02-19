@@ -24,13 +24,12 @@
         </div>
     </header>
     <div class="container">
-        <h2 class="text-center mt-5">Submitted Sites</h2>
+        <h2 class="text-center mt-5">TO BE RATED.</h2>
         <div class="row">
             {% for project in projects %}
             <div class="col-md-4 mt-5">
                 <div class="card-group">
                     <img src="{{project.image_landing.url}}" alt="" class="card-img-top img-fluid">
-                    
                 </div>
                 <div class="card-body">
                     <a href="{% url 'projects' project.pk %}" class="float-left text-dark">
