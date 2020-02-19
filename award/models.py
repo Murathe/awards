@@ -10,14 +10,15 @@ from django.core.validators import MaxValueValidator
 # Create your models here.
 class Profile(models.Model):
     bio = HTMLField()
-    profile_photo = ImageField()
+    profile_photo = ImageField(blank = True)
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
-    phone_number = models.CharField(max_length=12)
+    phone_number = models.CharField(max_length=10)
 
     @receiver(post_save, sender = User)
     def create_user_profile(self, sender, instance, created, **kwargs):
         if created:
             Profile.objects.create(user=instance)
+
 
     @receiver(post_save, sender = User)
     def save_user_profile(self, sender, instance, **kwargs):

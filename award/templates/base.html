@@ -17,8 +17,14 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     {% endblock %}
+    <style>
+        .home{
+            background-image: linear-gradient(to right top, #051937, #003548, #275051, #54695e, #7e8175);
+            height: 100vh;
+        }
+    </style>
 </head>
-<body>
+<body class="home">
     {% include "navbar.html" %}
     {% block content %} 
     

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'award',
     'pyuploadcare.dj',
     'tinymce',
+    'bootstrap4',
     'url_or_relative_url_field',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -47,6 +48,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -77,6 +80,12 @@ TEMPLATES = [
         },
     },
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
 
 WSGI_APPLICATION = 'awards.wsgi.application'
 
