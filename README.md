@@ -1,6 +1,6 @@
-### Gram (instagram)
+### Aawards
 ### Description
-##### Gram is a platform where users can display their photos forthe worldto see, they can also see other peoples photos.
+##### Awaards is a web application where one can have their projects rated after creatring an account and posting them.
 ### Author
 Murathe Isaac
 
@@ -11,8 +11,9 @@ Murathe Isaac
   - Text Editor
   - Install python3
   - Install and activate virtual
-  - Setup Database
   - Install Django
+  - Setup Database (postgresql)
+  
 
 ### Set up Process
 ##### Install your preferred version of python
@@ -20,7 +21,7 @@ Murathe Isaac
   - ```python --version``` to confirm that python has been installed.
 
 ##### Git clone the project on your current directory by:
-  - ```git clone https://github.com/Murathe/iinstagram.git```.
+  - ```git clone https://github.com/Murathe/aawards.git```.
 ##### Open the project on your terminal:
   - ```atom . or code .``` , 
 ##### Move to your project directory:
@@ -47,11 +48,12 @@ Murathe Isaac
 
 
 ### User Stories
-##### As a user, I would like to view different photos that interest me.
-##### As a user, I would like to click on a single photo to expand it and also view the details of the photo.
-##### As a user, I would like to search for different categories of photos.
-##### As a user, I would like to copy a link to the photo to share with my friends.
-##### As a user, I would like to view photos based on the location they were taken.
+1. View posted projects and their details
+2. Post a project to be rated/reviewed
+3. Rate/ review other users' projects
+4. Search for projects 
+5. View projects overall score
+6. View my profile page
 
 ### Behavior Driven Development
 ##### The application should display photos.
