@@ -16,10 +16,9 @@ Murathe Isaac
   - Install Django
   - Setup Database (postgresql)
   
-
 ### Set up Process
 ##### Install your preferred version of python
-  - ```sudo apt-get install python3.6```.
+  - ```sudo apt-get install python3.6```
   - ```python --version``` to confirm that python has been installed.
 
 ##### Git clone the project on your current directory by:
