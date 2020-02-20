@@ -4,7 +4,8 @@
 ### Author
 Murathe Isaac
 
-![Landing page ss](https://raw.githubusercontent.com/Murathe/awards/master/media/screenshot.png)
+![Screenshot from 2020-02-20 11-07-47](https://user-images.githubusercontent.com/29546502/74913268-55bde500-53d1-11ea-8f5b-c3fa11736ba0.png)
+
 
 ## Live site
 
