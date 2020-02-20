@@ -4,8 +4,7 @@
 ### Author
 Murathe Isaac
 
-![image](https://user-images.githubusercontent.com/29546502/74370737-a7220f00-4de8-11ea-9400-0a3884fca4ff.png)
-
+![Landing page ss](https://raw.githubusercontent.com/Murathe/awards/master/media/screenshot.png)
 ### Requirements
 ##### These are the requirements you need to get the project running locally on your machine:
   - Text Editor
